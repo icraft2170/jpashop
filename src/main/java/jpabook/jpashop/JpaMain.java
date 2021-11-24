@@ -2,6 +2,8 @@ package jpabook.jpashop;
 
 
 import jpabook.jpashop.domain.Member;
+import jpabook.jpashop.domain.Order;
+import jpabook.jpashop.domain.OrderItem;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -18,18 +20,10 @@ public class JpaMain {
         tx.begin();
 
         try {
-//
-            Member memberA = new Member(null,"손현호","서울","대조로","209-34");
-//            Member memberB = new Member(200L, "memberB");
 
+            Order order = new Order();
+            order.addOrderItem(new OrderItem());
 
-            System.out.println("========= Before ===========");
-            em.persist(memberA);
-//            em.persist(memberB);
-            Member findMember = em.find(Member.class, 1L);
-            System.out.println("findMember.getName() = " + findMember.getName());
-//            findMember.setName("MemberModify");
-            System.out.println("========= After ===========");
 
 
             tx.commit();
